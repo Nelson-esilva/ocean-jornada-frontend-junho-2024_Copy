@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import './App.css'
 import Card from './components/Card/Card'
+import { useEffect } from 'react'
 
 function App() {
   // const item1 = {
@@ -20,7 +22,7 @@ function App() {
   // // // Listas (Arrays)
   // const itens = [item1, item2, item3]
 
-  const itens = []
+  const [itens, setItens] = useState([])
 
   async function carregarDados() {
     const apiUrl = 'https://rickandmortyapi.com/api/character'
@@ -37,10 +39,17 @@ function App() {
 
     const body = await response.json()
 
-    console.log(body)
+    const results = body.results
+
+    console.log(results)
+
+    setItens(results)
   }
 
-  carregarDados()
+  useEffect(function() {
+    carregarDados()
+  }, [])
+  
 
   return (
     <>
