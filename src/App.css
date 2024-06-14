@@ -25,6 +25,8 @@
     font-size: 32px;
     font-family: sans-serif;
     border-left: 6px solid #A9D3E9;
+    color: black;
+    text-decoration: none;
 }
 
 .card .tags {
